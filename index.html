@@ -27,32 +27,37 @@
 <body>
 
   <div class="container-fluid">
-    <h1>Generador de Rifas</h1>
-  </div>
-  
-  <!-- Contenedor del canvas -->
-  <div class="container">
-    <label for="colorFondo">Color del fondo:</label>
-    <input type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()">
+    <div class="row">
+      <div class="col-12">
+        <h1>Generador de Rifas</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <!-- Contenedor del canvas -->
+        <div class="container">
+          <canvas id="miCanvas" width="600" height="900" style="border:1px solid #000;" name="tablero"></canvas>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <label for="colorFondo">Color del fondo:</label>
+        <input type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()">
     
-    <label for="colorLineas">Color de las líneas:</label>
-    <input type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()">
+        <label for="colorLineas">Color de las líneas:</label>
+        <input type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()">
     
-    <label for="colorNumeros">Color de los números:</label>
-    <input type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()">
+        <label for="colorNumeros">Color de los números:</label>
+        <input type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()">
 
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()">
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 20 caracteres)" maxlength="20" oninput="cambiarDescripcion()">
   
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 20 caracteres)" maxlength="20" oninput="cambiarDescripcion()">
-  
-  
-    <canvas id="miCanvas" width="600" height="900" style="border:1px solid #000;" name="tablero"></canvas>
-  </div>
-  
-  <!-- Botón para descargar la imagen -->
-  <button class="btn btn-primary" onclick="descargarImagen()">Descargar Imagen</button>
+        <!-- Botón para descargar la imagen -->
+        <button class="btn btn-primary" onclick="descargarImagen()">Descargar Imagen</button>
+      </div>
   
   <script src="script.js"></script>
   
