@@ -27,39 +27,45 @@
 <body>
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row border" id="portada">
       <div class="col-12">
-        <h1>Generador de Rifas</h1>
+        <h1>Generador cartones de Rifa</h1>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-xl-6">
         <!-- Contenedor del canvas -->
-        <div class="container">
+        
           <canvas id="miCanvas" width="600" height="900" style="border:1px solid #000;" name="tablero"></canvas>
-        </div>
+       
       </div>
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-xl-6 mt-3">
         <ul>
           <li>
           <label for="colorFondo">Color del fondo:</label>
-          <input type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()"></li>
+          <input class=" form-control form-control-color" type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()"></li>
         <li>
           <label for="colorLineas">Color de las líneas:</label>
-          <input type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()"></li>
+          <input class=" form-control form-control-color" type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()"></li>
     
           <li>
-            <label for="colorNumeros">Color de los números:</label>
-            <input type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()"></li>
+            <label for="colorNumeros">Color de Letras:</label>
+            <input class=" form-control form-control-color" type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()"></li>
 
           <li><label for="titulo">Título:</label>
             <input class="form-control" type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()"></li>
 
           <li><label for="descripcion">Descripción:</label>
-          <input class="form-control" type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 20 caracteres)" maxlength="20" row="5" oninput="cambiarDescripcion()"></li>
+          <input class="form-control" type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 40 caracteres)" maxlength="40" row="5" oninput="cambiarDescripcion()"></li>
+
+          <li><label for="valor">Valor:</label>
+            <input class="form-control" type="number" id="valor" placeholder="valor (máx. 40 caracteres)" maxlength="100" oninput="cambiarValor()"></li>
+            <li> <input type="file" id="imagenFondoInput" accept="image/*" onchange="cargarImagenDeFondo()"></li>
   
           <!-- Botón para descargar la imagen -->
           <li><button class="btn btn-primary m-3" onclick="descargarImagen()">Descargar Imagen</button></li>
+          
+
       </div>
     </div>
   </div>

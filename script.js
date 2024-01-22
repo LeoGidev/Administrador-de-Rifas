@@ -13,6 +13,7 @@ var colorLineas = '#00ff00';
 var colorNumeros = '#000000';
 var titulo = 'Título';
 var descripcion = 'Descripción';
+var valor='Valor=';
 
 function cambiarColorFondo() {
   colorFondo = document.getElementById('colorFondo').value;
@@ -39,6 +40,11 @@ function cambiarTitulo() {
       
 function cambiarDescripcion() {
         descripcion = document.getElementById('descripcion').value;
+        dibujarCuadricula();
+      }
+
+function cambiarValor() {
+        valor = 'valor= '+ document.getElementById('valor').value;
         dibujarCuadricula();
       }
 
@@ -86,6 +92,13 @@ function dibujarCuadricula() {
   contexto.textAlign = 'center';
   contexto.textBaseline = 'top';
   contexto.fillText(descripcion, canvas.width / 2, 150);
+
+  // Dibujar el valor
+  contexto.fillStyle = colorNumeros; 
+  contexto.font = '20px Arial'; 
+  contexto.textAlign = 'center';
+  contexto.textBaseline = 'top';
+  contexto.fillText(valor, 500, portada-40);
 }
 
 // Dibujar una imagen de ejemplo en el canvas

@@ -3,3 +3,9 @@ ul {
     padding: 0; /* Elimina el espacio interior predeterminado de la lista */
     margin: 0; /* Elimina el margen predeterminado de la lista */
   }
+  #portada{
+    background-color: rgb(93, 93, 93);
+    color: white;
+    font-family: 'Ubuntu Mono', monospace;
+    height: 100px;
+  }
