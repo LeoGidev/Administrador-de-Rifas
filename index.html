@@ -53,14 +53,16 @@
             <input class=" form-control form-control-color" type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()"></li>
 
           <li><label for="titulo">Título:</label>
-            <input class="form-control" type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()"></li>
+            <input class="form-control" type="text" id="titulo" placeholder="Ingrese el título" maxlength="20" oninput="cambiarTitulo()"></li>
 
           <li><label for="descripcion">Descripción:</label>
           <input class="form-control" type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 40 caracteres)" maxlength="40" row="5" oninput="cambiarDescripcion()"></li>
 
           <li><label for="valor">Valor:</label>
             <input class="form-control" type="number" id="valor" placeholder="valor (máx. 40 caracteres)" maxlength="100" oninput="cambiarValor()"></li>
-            <li> <input type="file" id="imagenFondoInput" accept="image/*" onchange="cargarImagenDeFondo()"></li>
+            
+          <li><label for="valor">Imagen:</label>
+             <input class="form-control" type="file" id="imagenFondoInput" accept="image/*" onchange="cargarImagenDeFondo()"></li>
   
           <!-- Botón para descargar la imagen -->
           <li><button class="btn btn-primary m-3" onclick="descargarImagen()">Descargar Imagen</button></li>

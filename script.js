@@ -52,6 +52,8 @@ function cambiarValor() {
 dibujarCuadricula();
 
 function dibujarCuadricula() {
+            // Elimina la imagen de fondo existente si hay una
+            contexto.clearRect(0, 0, portada-4, portada-4);
   // Dibujar el rectángulo de fondo
   contexto.fillStyle = colorFondo;
   contexto.fillRect(0, 0, canvas.width, canvas.height);
@@ -84,7 +86,7 @@ function dibujarCuadricula() {
   contexto.font = '40px Arial';
   contexto.textAlign = 'center';
   contexto.textBaseline = 'top';
-  contexto.fillText(titulo, canvas.width / 2, 40);
+  contexto.fillText(titulo, (canvas.width) - portada, 40);
 
   // Dibujar la descripción en la posición especificada
   contexto.fillStyle = colorNumeros; 
@@ -99,6 +101,8 @@ function dibujarCuadricula() {
   contexto.textAlign = 'center';
   contexto.textBaseline = 'top';
   contexto.fillText(valor, 500, portada-40);
+
+  cargarImagenDeFondo()
 }
 
 // Dibujar una imagen de ejemplo en el canvas
@@ -121,14 +125,16 @@ function cargarImagenDeFondo() {
     var archivo = input.files[0];
   
     if (archivo) {
+
       // Código para cargar la imagen de fondo y dibujarla en el canvas
       var imagenFondo = new Image();
       imagenFondo.onload = function() {
-        // Dibuja la imagen en el canvas, por ejemplo:
+        // Dibuja la imagen en el canvas:
         contexto.drawImage(imagenFondo, 0, 0, portada-4, (portada-4));
       };
       imagenFondo.src = URL.createObjectURL(archivo);
     }
+    
   }
   
 
