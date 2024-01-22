@@ -116,3 +116,19 @@ function descargarImagen() {
   enlaceDescarga.click();
 }
 
+function cargarImagenDeFondo() {
+    var input = document.getElementById('imagenFondoInput');
+    var archivo = input.files[0];
+  
+    if (archivo) {
+      // Código para cargar la imagen de fondo y dibujarla en el canvas
+      var imagenFondo = new Image();
+      imagenFondo.onload = function() {
+        // Dibuja la imagen en el canvas, por ejemplo:
+        contexto.drawImage(imagenFondo, 0, 0, portada-4, (portada-4));
+      };
+      imagenFondo.src = URL.createObjectURL(archivo);
+    }
+  }
+  
+
