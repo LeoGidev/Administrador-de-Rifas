@@ -1,45 +1,58 @@
-    
-        var canvas = document.getElementById('miCanvas');
-        var contexto = canvas.getContext('2d');
-    
-        // Tamaño de cada cuadro en centímetros
-        var tamanoCuadro = 200; // 2 cm
-        var cuadrosPorLado = 10;
-        var tamañoTotal = tamanoCuadro * cuadrosPorLado;
-                 // Dibujar el rectángulo 
-    contexto.fillStyle = 'white';
-    contexto.fillRect(0, 0, canvas.width,(canvas.height));
-    
-        // Dibujar la cuadrícula
-        for (var i = 0; i < cuadrosPorLado; i++) {
-          for (var j = 0; j < cuadrosPorLado; j++) {
-            // Calcular las coordenadas en píxeles para cada cuadro
-            var x = i * tamanoCuadro * (canvas.width / tamañoTotal);
-            var y = j * tamanoCuadro * ((canvas.height - 300) / tamañoTotal);
-    
-            // Dibujar el cuadro en el canvas
-            contexto.lineWidth = 5; // Grosor de línea en píxeles
+var canvas = document.getElementById('miCanvas');
+var contexto = canvas.getContext('2d');
 
-            // Establecer el color de línea
-            contexto.strokeStyle = 'green';
-            contexto.strokeRect(x, y+300, (canvas.width)/10, (canvas.height-300)/10);
-          }
-        }
+// Tamaño de cada cuadro en centímetros
+var tamanoCuadro = 200;
+var cuadrosPorLado = 10;
+var tamañoTotal = tamanoCuadro * cuadrosPorLado;
 
+// Inicializar colores
+var colorFondo = '#ffffff'; // Color de fondo inicial
+var colorLineas = '#00ff00'; // Color de líneas inicial
 
+function cambiarColorFondo() {
+  colorFondo = document.getElementById('colorFondo').value;
+  dibujarCuadricula(); // Vuelve a dibujar la cuadrícula con el nuevo color de fondo
+}
 
+function cambiarColorLineas() {
+  colorLineas = document.getElementById('colorLineas').value;
+  dibujarCuadricula(); // Vuelve a dibujar la cuadrícula con el nuevo color de líneas
+}
 
-    // Dibujar una imagen de ejemplo en el canvas
-    var imagenEjemplo = new Image();
-    imagenEjemplo.src = 'downloads/imagen.jpg'; // 
-    imagenEjemplo.onload = function() {
-    contexto.drawImage(imagenEjemplo, 0, 0, canvas.width, canvas.height);
-    };
+// Dibujar cuadrícula con colores iniciales
+dibujarCuadricula();
 
-    // Función para descargar la imagen
-    function descargarImagen() {
-      var enlaceDescarga = document.createElement('a');
-      enlaceDescarga.href = canvas.toDataURL('downloads/image/png'); // Convertir canvas a una URL de datos en formato PNG
-      enlaceDescarga.download = 'Rifa.png'; // Nombre del archivo a descargar
-      enlaceDescarga.click();
+function dibujarCuadricula() {
+  // Dibujar el rectángulo de fondo
+  contexto.fillStyle = colorFondo;
+  contexto.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Dibujar la cuadrícula
+  for (var i = 0; i < cuadrosPorLado; i++) {
+    for (var j = 0; j < cuadrosPorLado; j++) {
+      var x = i * tamanoCuadro * (canvas.width / tamañoTotal);
+      var y = j * tamanoCuadro * ((canvas.height - 300) / tamañoTotal);
+
+      // Dibujar el cuadro en el canvas con el nuevo color de líneas
+      contexto.lineWidth = 5;
+      contexto.strokeStyle = colorLineas;
+      contexto.strokeRect(x, y + 300, (canvas.width) / 10, (canvas.height - 300) / 10);
     }
+  }
+}
+
+// Dibujar una imagen de ejemplo en el canvas
+var imagenEjemplo = new Image();
+imagenEjemplo.src = 'downloads/imagen.jpg';
+imagenEjemplo.onload = function () {
+  contexto.drawImage(imagenEjemplo, 0, 0, canvas.width, canvas.height);
+};
+
+// Función para descargar la imagen
+function descargarImagen() {
+  var enlaceDescarga = document.createElement('a');
+  enlaceDescarga.href = canvas.toDataURL('image/png');
+  enlaceDescarga.download = 'Rifa.png';
+  enlaceDescarga.click();
+}
