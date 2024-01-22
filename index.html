@@ -27,7 +27,7 @@
 <body>
 
   <div class="container-fluid">
-    <h1>Generador de Imágenes</h1>
+    <h1>Generador de Rifas</h1>
   </div>
   
   <!-- Contenedor del canvas -->
@@ -40,12 +40,19 @@
     
     <label for="colorNumeros">Color de los números:</label>
     <input type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()">
+
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()">
+  
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 20 caracteres)" maxlength="20" oninput="cambiarDescripcion()">
+  
   
     <canvas id="miCanvas" width="600" height="900" style="border:1px solid #000;" name="tablero"></canvas>
   </div>
   
   <!-- Botón para descargar la imagen -->
-  <button onclick="descargarImagen()">Descargar Imagen</button>
+  <button class="btn btn-primary" onclick="descargarImagen()">Descargar Imagen</button>
   
   <script src="script.js"></script>
   

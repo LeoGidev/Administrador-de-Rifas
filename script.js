@@ -10,6 +10,8 @@ var tamañoTotal = tamanoCuadro * cuadrosPorLado;
 var colorFondo = '#ffffff';
 var colorLineas = '#00ff00';
 var colorNumeros = '#000000';
+var titulo = '';
+var descripcion = '';
 
 function cambiarColorFondo() {
   colorFondo = document.getElementById('colorFondo').value;
@@ -25,6 +27,19 @@ function cambiarColorNumeros() {
   colorNumeros = document.getElementById('colorNumeros').value;
   dibujarCuadricula();
 }
+function formatearNumero(numero) {
+    return numero < 10 ? '0' + numero : numero.toString();
+      }
+
+function cambiarTitulo() {
+        titulo = document.getElementById('titulo').value;
+        dibujarCuadricula();
+      }
+      
+function cambiarDescripcion() {
+        descripcion = document.getElementById('descripcion').value;
+        dibujarCuadricula();
+      }
 
 // Dibujar cuadrícula con colores iniciales
 dibujarCuadricula();
@@ -47,13 +62,29 @@ function dibujarCuadricula() {
 
       // Dibujar el número en el centro del cuadro con el nuevo color de números
       contexto.fillStyle = colorNumeros;
-      contexto.font = '20px Arial'; // Puedes ajustar el tamaño y la fuente según tus preferencias
+      contexto.font = '20px Arial'; 
       contexto.textAlign = 'center';
       contexto.textBaseline = 'middle';
       var numero = i * cuadrosPorLado + j;
-      contexto.fillText(numero, x + (canvas.width) / (cuadrosPorLado * 2), y + 300 + (canvas.height - 300) / (cuadrosPorLado * 2));
+      var numeroFormateado = formatearNumero(numero);
+     
+      contexto.fillText(numeroFormateado, x + (canvas.width) / (cuadrosPorLado * 2), y + 300 + (canvas.height - 300) / (cuadrosPorLado * 2));
+
     }
   }
+  // Dibujar el título en la posición especificada
+  contexto.fillStyle = colorNumeros; 
+  contexto.font = '20px Arial';
+  contexto.textAlign = 'center';
+  contexto.textBaseline = 'top';
+  contexto.fillText(titulo, canvas.width / 2, 20);
+
+  // Dibujar la descripción en la posición especificada
+  contexto.fillStyle = colorNumeros; 
+  contexto.font = '14px Arial'; 
+  contexto.textAlign = 'center';
+  contexto.textBaseline = 'top';
+  contexto.fillText(descripcion, canvas.width / 2, 150);
 }
 
 // Dibujar una imagen de ejemplo en el canvas
