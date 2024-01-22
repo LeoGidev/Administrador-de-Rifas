@@ -11,9 +11,13 @@ var portada = 200;
 var colorFondo = '#ffffff';
 var colorLineas = '#00ff00';
 var colorNumeros = '#000000';
+//otras variables
 var titulo = 'Título';
 var descripcion = 'Descripción';
 var valor='Valor=';
+var imagen = new Image();
+imagen.src = 'rifa.png';
+
 
 function cambiarColorFondo() {
   colorFondo = document.getElementById('colorFondo').value;
@@ -47,6 +51,10 @@ function cambiarValor() {
         valor = 'valor= '+ document.getElementById('valor').value;
         dibujarCuadricula();
       }
+imagen.onload = function() {
+
+    contexto.drawImage(imagen, 0, 0, portada-4, (portada-4));
+}
 
 // Dibujar cuadrícula con colores iniciales
 dibujarCuadricula();
@@ -107,24 +115,26 @@ function dibujarCuadricula() {
 
 // Dibujar una imagen de ejemplo en el canvas
 var imagenEjemplo = new Image();
-imagenEjemplo.src = 'downloads/imagen.jpg';
+imagenEjemplo.src = 'imagen.jpg';
 imagenEjemplo.onload = function () {
-  contexto.drawImage(imagenEjemplo, 0, 0, canvas.width, canvas.height);
+contexto.drawImage(imagenEjemplo, 0, 0, canvas.width, canvas.height);
 };
 
 // Función para descargar la imagen
 function descargarImagen() {
   var enlaceDescarga = document.createElement('a');
   enlaceDescarga.href = canvas.toDataURL('image/png');
-  enlaceDescarga.download = 'Rifa.png';
+  enlaceDescarga.download = 'image.png';
   enlaceDescarga.click();
 }
 
 function cargarImagenDeFondo() {
     var input = document.getElementById('imagenFondoInput');
     var archivo = input.files[0];
+    
   
     if (archivo) {
+        
 
       // Código para cargar la imagen de fondo y dibujarla en el canvas
       var imagenFondo = new Image();
