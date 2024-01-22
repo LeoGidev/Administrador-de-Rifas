@@ -26,20 +26,25 @@
 </head>
 <body>
 
-<div class="conatiner-fluid">
-  <h1>Generador de Imágenes</h1>
+  <div class="container-fluid">
+    <h1>Generador de Imágenes</h1>
   </div>
+  
   <!-- Contenedor del canvas -->
-  <div>
-    <canvas id="miCanvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+  <div class="container">
+    <label for="colorFondo">Color del fondo:</label>
+    <input type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()">
+    
+    <label for="colorLineas">Color de las líneas:</label>
+    <input type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()">
+  
+    <canvas id="miCanvas" width="600" height="900" style="border:1px solid #000;" name="tablero"></canvas>
   </div>
-
+  
   <!-- Botón para descargar la imagen -->
   <button onclick="descargarImagen()">Descargar Imagen</button>
-
-  <script src="script.js">
-
-  </script>
-
-</body>
-</html>
+  
+  <script src="script.js"></script>
+  
+  </body>
+  </html>
