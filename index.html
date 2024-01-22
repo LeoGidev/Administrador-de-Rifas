@@ -40,23 +40,26 @@
         </div>
       </div>
       <div class="col-12 col-sm-6">
-        <label for="colorFondo">Color del fondo:</label>
-        <input type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()">
+        <ul>
+          <li>
+          <label for="colorFondo">Color del fondo:</label>
+          <input type="color" id="colorFondo" value="#ffffff" onchange="cambiarColorFondo()"></li>
+        <li>
+          <label for="colorLineas">Color de las líneas:</label>
+          <input type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()"></li>
     
-        <label for="colorLineas">Color de las líneas:</label>
-        <input type="color" id="colorLineas" value="#00ff00" onchange="cambiarColorLineas()">
-    
-        <label for="colorNumeros">Color de los números:</label>
-        <input type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()">
+          <li>
+            <label for="colorNumeros">Color de los números:</label>
+            <input type="color" id="colorNumeros" value="#000000" onchange="cambiarColorNumeros()"></li>
 
-        <label for="titulo">Título:</label>
-        <input type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()">
+          <li><label for="titulo">Título:</label>
+            <input class="form-control" type="text" id="titulo" placeholder="Ingrese el título" oninput="cambiarTitulo()"></li>
 
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 20 caracteres)" maxlength="20" oninput="cambiarDescripcion()">
+          <li><label for="descripcion">Descripción:</label>
+          <input class="form-control" type="text" id="descripcion" placeholder="Ingrese la descripción (máx. 20 caracteres)" maxlength="20" row="5" oninput="cambiarDescripcion()"></li>
   
-        <!-- Botón para descargar la imagen -->
-        <button class="btn btn-primary" onclick="descargarImagen()">Descargar Imagen</button>
+          <!-- Botón para descargar la imagen -->
+          <li><button class="btn btn-primary m-3" onclick="descargarImagen()">Descargar Imagen</button></li>
       </div>
     </div>
   </div>

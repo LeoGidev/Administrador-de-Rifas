@@ -1,0 +1,5 @@
+ul {
+    list-style-type: none; /* Elimina el estilo predeterminado de las viñetas */
+    padding: 0; /* Elimina el espacio interior predeterminado de la lista */
+    margin: 0; /* Elimina el margen predeterminado de la lista */
+  }
