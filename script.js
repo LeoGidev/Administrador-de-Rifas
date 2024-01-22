@@ -7,17 +7,23 @@ var cuadrosPorLado = 10;
 var tamañoTotal = tamanoCuadro * cuadrosPorLado;
 
 // Inicializar colores
-var colorFondo = '#ffffff'; // Color de fondo inicial
-var colorLineas = '#00ff00'; // Color de líneas inicial
+var colorFondo = '#ffffff';
+var colorLineas = '#00ff00';
+var colorNumeros = '#000000';
 
 function cambiarColorFondo() {
   colorFondo = document.getElementById('colorFondo').value;
-  dibujarCuadricula(); // Vuelve a dibujar la cuadrícula con el nuevo color de fondo
+  dibujarCuadricula();
 }
 
 function cambiarColorLineas() {
   colorLineas = document.getElementById('colorLineas').value;
-  dibujarCuadricula(); // Vuelve a dibujar la cuadrícula con el nuevo color de líneas
+  dibujarCuadricula();
+}
+
+function cambiarColorNumeros() {
+  colorNumeros = document.getElementById('colorNumeros').value;
+  dibujarCuadricula();
 }
 
 // Dibujar cuadrícula con colores iniciales
@@ -28,7 +34,7 @@ function dibujarCuadricula() {
   contexto.fillStyle = colorFondo;
   contexto.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Dibujar la cuadrícula
+  // Dibujar la cuadrícula y los números
   for (var i = 0; i < cuadrosPorLado; i++) {
     for (var j = 0; j < cuadrosPorLado; j++) {
       var x = i * tamanoCuadro * (canvas.width / tamañoTotal);
@@ -38,6 +44,14 @@ function dibujarCuadricula() {
       contexto.lineWidth = 5;
       contexto.strokeStyle = colorLineas;
       contexto.strokeRect(x, y + 300, (canvas.width) / 10, (canvas.height - 300) / 10);
+
+      // Dibujar el número en el centro del cuadro con el nuevo color de números
+      contexto.fillStyle = colorNumeros;
+      contexto.font = '20px Arial'; // Puedes ajustar el tamaño y la fuente según tus preferencias
+      contexto.textAlign = 'center';
+      contexto.textBaseline = 'middle';
+      var numero = i * cuadrosPorLado + j;
+      contexto.fillText(numero, x + (canvas.width) / (cuadrosPorLado * 2), y + 300 + (canvas.height - 300) / (cuadrosPorLado * 2));
     }
   }
 }
@@ -56,3 +70,4 @@ function descargarImagen() {
   enlaceDescarga.download = 'Rifa.png';
   enlaceDescarga.click();
 }
+
