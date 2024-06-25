@@ -4,4 +4,4 @@
 ![imagen ilustrativa](example.png)
 
 
-Puedes verla en mi Portafolio:[ir](https://leogidev.free.nf/Practicas/calculadora/)
+Puedes verla en mi Portafolio:[ir](https://leogidev.free.nf/Practicas/CartondeRifa/)
