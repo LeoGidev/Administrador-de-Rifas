@@ -1,11 +1,43 @@
 ul {
-    list-style-type: none; /* Elimina el estilo predeterminado de las viñetas */
-    padding: 0; /* Elimina el espacio interior predeterminado de la lista */
-    margin: 0; /* Elimina el margen predeterminado de la lista */
-  }
-  #portada{
-    background-color: rgb(93, 93, 93);
-    color: white;
-    font-family: 'Ubuntu Mono', monospace;
-    height: 100px;
-  }
+  list-style-type: none; /* Elimina el estilo predeterminado de las viÃ±etas */
+  padding: 0; /* Elimina el espacio interior predeterminado de la lista */
+  margin: 0; /* Elimina el margen predeterminado de la lista */
+}
+#portada{
+  position:absolute;
+  top: 60px !important;
+  backdrop-filter: blur(10px);
+  
+  color: white;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 18px;
+  height: 100px;
+}
+#carton{
+  position: relative;
+  top: 180px !important;
+  width: 100%;
+  
+}
+.col-12{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+body {
+  background-image: url('../recursos/fondo.webp');
+  margin: 0;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+nav{
+  background-color: black !important;
+}
+.dropdown-menu {
+  max-height: 80vh; 
+  overflow-y: auto;
+}
