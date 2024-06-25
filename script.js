@@ -1,10 +1,10 @@
 var canvas = document.getElementById('miCanvas');
 var contexto = canvas.getContext('2d');
 
-// Tamaño de cada cuadro 
+// TamaÃ±o de cada cuadro 
 var tamanoCuadro = 200;
 var cuadrosPorLado = 10;
-var tamañoTotal = tamanoCuadro * cuadrosPorLado;
+var tamanoTotal = tamanoCuadro * cuadrosPorLado;
 var portada = 200;
 
 // Inicializar colores
@@ -12,8 +12,8 @@ var colorFondo = '#ffffff';
 var colorLineas = '#00ff00';
 var colorNumeros = '#000000';
 //otras variables
-var titulo = 'Título';
-var descripcion = 'Descripción';
+var titulo = 'TÃ­tulo';
+var descripcion = 'DescripciÃ³n';
 var valor='Valor=';
 var imagen = new Image();
 imagen.src = 'rifa.png';
@@ -56,28 +56,28 @@ imagen.onload = function() {
     contexto.drawImage(imagen, 0, 0, portada-4, (portada-4));
 }
 
-// Dibujar cuadrícula con colores iniciales
+// Dibujar cuadrÃ­cula con colores iniciales
 dibujarCuadricula();
 
 function dibujarCuadricula() {
             // Elimina la imagen de fondo existente si hay una
             contexto.clearRect(0, 0, portada-4, portada-4);
-  // Dibujar el rectángulo de fondo
+  // Dibujar el rectÃ¡ngulo de fondo
   contexto.fillStyle = colorFondo;
   contexto.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Dibujar la cuadrícula y los números
+  // Dibujar la cuadrÃ­cula y los nÃºmeros
   for (var i = 0; i < cuadrosPorLado; i++) {
     for (var j = 0; j < cuadrosPorLado; j++) {
-      var x = i * tamanoCuadro * (canvas.width / tamañoTotal);
-      var y = j * tamanoCuadro * ((canvas.height - portada) / tamañoTotal);
+      var x = i * tamanoCuadro * (canvas.width / tamanoTotal);
+      var y = j * tamanoCuadro * ((canvas.height - portada) / tamanoTotal);
 
-      // Dibujar el cuadro en el canvas con el nuevo color de líneas
+      // Dibujar el cuadro en el canvas con el nuevo color de lÃ­neas
       contexto.lineWidth = 5;
       contexto.strokeStyle = colorLineas;
       contexto.strokeRect(x, y + portada, (canvas.width) / 10, (canvas.height - portada) / 10);
 
-      // Dibujar el número en el centro del cuadro con el nuevo color de números
+      // Dibujar el nÃºmero en el centro del cuadro con el nuevo color de nÃºmeros
       contexto.fillStyle = colorNumeros;
       contexto.font = '20px Arial'; 
       contexto.textAlign = 'center';
@@ -89,14 +89,14 @@ function dibujarCuadricula() {
 
     }
   }
-  // Dibujar el título en la posición especificada
+  // Dibujar el tÃ­tulo en la posiciÃ³n especificada
   contexto.fillStyle = colorNumeros; 
   contexto.font = '40px Arial';
   contexto.textAlign = 'center';
   contexto.textBaseline = 'top';
   contexto.fillText(titulo, (canvas.width) - portada, 40);
 
-  // Dibujar la descripción en la posición especificada
+  // Dibujar la descripciÃ³n en la posiciÃ³n especificada
   contexto.fillStyle = colorNumeros; 
   contexto.font = '20px Arial'; 
   contexto.textAlign = 'center';
@@ -120,7 +120,7 @@ imagenEjemplo.onload = function () {
 contexto.drawImage(imagenEjemplo, 0, 0, canvas.width, canvas.height);
 };
 
-// Función para descargar la imagen
+// FunciÃ³n para descargar la imagen
 function descargarImagen() {
   var enlaceDescarga = document.createElement('a');
   enlaceDescarga.href = canvas.toDataURL('image/png');
@@ -136,7 +136,7 @@ function cargarImagenDeFondo() {
     if (archivo) {
         
 
-      // Código para cargar la imagen de fondo y dibujarla en el canvas
+      // CÃ³digo para cargar la imagen de fondo y dibujarla en el canvas
       var imagenFondo = new Image();
       imagenFondo.onload = function() {
         // Dibuja la imagen en el canvas:
